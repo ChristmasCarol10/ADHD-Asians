@@ -1,0 +1,407 @@
+@import url('/fonts/OpenDyslexic/OpenDyslexic-Regular.otf&display=swap');
+
+body {
+    font-size: 1.125rem;
+    font-family: "opendyslexic";
+	src: url("/fonts/OpenDyslexic/OpenDyslexic-Regular.otf");
+    display: flex;
+    flex-direction: column;
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 0 0.9375rem;   
+}
+
+
+  .gradient-brand-primary {
+    background-color: #f3ec78;
+    background-image: linear-gradient(45deg, #f3ec78, #e41651b2);
+}
+
+.gradient-text {
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+  /* Set the background size and repeat properties. */
+  background-size: 100%;
+  background-repeat: repeat;
+
+  font-family: "opendyslexic";
+	src: url("/fonts/OpenDyslexic/OpenDyslexic-Regular.otf");
+
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  }
+
+//menu bar
+/* Main content */
+.main {
+  margin-top: 30px; /* Add a top margin to avoid content overlay */
+}
+
+
+.link {
+  /* Fallback: Set a background color. */
+  background-color: red;
+    
+  
+  /* Create the gradient. */
+  background-image: linear-gradient(
+    45deg,
+     #e7ae3494 50%,
+     #c2486b6b 50%
+     );
+  
+  /* Set the background size and repeat properties. */
+  background-size: 270%;
+  background-repeat: repeat;
+  background-position: top right;
+
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+
+  
+  animation: button-animation 0.65s 0.15s ease-out forwards;
+}
+
+a:hover, a:hover span{
+    animation: button-animation-rev 0.65s ease-out forwards;
+}
+
+@keyframes button-animation {
+  0% {
+    background-position: top right;
+  }
+  100% {
+    background-position: top left;
+  }
+}
+
+@keyframes button-animation-rev {
+  0% {
+    background-position: top left;
+  }
+  100% {
+    background-position: top right;
+  }
+}
+
+{
+  transition:color ease 0.2s, background-color ease 0.2s;
+}
+
+/*theme setup*/
+:root{
+--bg-color: rgb(72, 153, 106);
+--text-color: #090909;
+--anchor-color: #005AB3;
+--highlight-color: #0066CC;
+}
+
+html[data-color-scheme = "dark"]{
+--bg-color: #190d2cd8;
+--text-color: #FAFAFA;
+--anchor-color: #FFFFFF;
+--highlight-color: #0099FF;
+
+
+}
+
+
+
+
+body{
+ background-color: var(--bg-color);
+ color: var(--text-color);
+}
+
+ul {
+  list-style: none; /* Remove default bullets */
+}
+
+ul li::before {
+  content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: red; /* Change the color */
+  font-weight: bold; /* If you want it to be bold */
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1em; /* Also needed for space (tweak if needed) */
+  margin-left: -1em; /* Also needed for space (tweak if needed) */
+}
+
+h1{
+ color: var(--text-color);
+}
+
+::-moz-selection /* FireFox */
+{
+  color: var(--highlight-color);
+  background: var(--highlight-bg);
+}
+
+::selection
+{
+  color: var(--highlight-color);
+  background: var(--highlight-bg);
+  
+}
+
+/*the Dark Mode Switch*/
+label{
+  position:absolute;
+  right:20px;
+  top:50%;
+  --c:translate(-50%,-50%);
+  transform:var(--c);
+}
+
+.switch{
+  position:relative;
+  left:0;top:0;
+  width:40px;
+  height:40px;
+}
+
+label > input{
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:5;
+  opacity:0;
+  width:100%;
+  height:100%;
+}
+
+.switch span{
+  display:block;
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:var(--c);
+  border-radius:50%;
+  width:70%;
+  height:70%;
+  background:#FFAC33;
+  border:5px solid rgb(40, 144, 230);
+  transition:all ease 0.15s;
+}
+
+.switch:hover, .switch span{
+    cursor: pointer;
+}
+
+.switch div{
+  position:absolute;
+  left:0;top:0;
+  width:100%;
+  height:100%;
+  
+}
+
+.switch div::before, .switch div::after{
+  content:" ";
+  display:block;
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:var(--c);
+  background:#FFAC33;
+  width:12%;
+  height:130%;
+  border-radius:10px;
+  transition:all ease 0.15s;
+  
+}
+
+.switch div:nth-child(1)::before{
+  transform:var(--c) rotate(0deg);
+}
+
+.switch div:nth-child(1)::after{
+  transform:var(--c) rotate(45deg); /*45deg increment each time*/
+}
+
+.switch div:nth-child(2)::before{
+  transform:var(--c) rotate(90deg);
+}
+
+.switch div:nth-child(2)::after{
+  transform:var(--c) rotate(135deg);
+}
+
+.switch::before, .switch::after{
+  content:" ";
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:var(--c);
+  border-radius:50%;
+  background:rgb(40, 144, 230);
+  transition:all ease 0.15s;
+}
+
+.switch::before{
+  width:0%;
+  height:0%;
+  z-index:10;
+}
+
+.switch::after{
+  width:50%;
+  height:50%;
+}
+
+input:checked ~ .switch span{
+    width:100%; /*width change*/
+    height:100%; /*height change*/
+    background:#66757F; /*color change*/
+    /*we get a full moon*/
+}
+
+input:checked ~ .switch div::before,
+input:checked ~ .switch div::after{
+    height:50%; /*we hide the sun-rays*/
+}
+
+input:checked ~ .switch::before{ /*we draw a white circle a left-top corner to show a half moon*/
+    left:30%;
+    top:30%;
+    width:90%;
+    height:90%;
+}
+
+input:checked ~ .switch::after{ /*we hide the sun outline*/
+    width:0%;
+    height:0%;
+}
+
+input:not(:checked) ~ .switch{
+    transform:rotate(180deg);
+    transition:all ease 2.15s 0.1s;
+}
+
+/*other styles*/
+main{
+  line-height:1.4em;
+}
+
+.container, .post-container{
+  position:relative;
+}
+
+.container{
+  padding:40px;
+}
+
+.sticky{
+  position:sticky;
+  top:0;left: 100%;
+  width: 20%;
+  height:80px;
+  background-color:rgb(40, 144, 230);
+  box-shadow:0 0 20px 0px rgba(0,0,0,0.4);
+  z-index:100;
+}
+
+.stickytext{
+  color:black;
+  font-size:22px;
+  position:absolute;
+  left:30px;
+  top:50%;
+  transform:translateY(-50%);
+  padding-bottom:5px;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+@font-face{
+	font-family: "opendyslexic";
+	src: url("/fonts/OpenDyslexic/OpenDyslexic-Regular.otf");
+	font-style: normal;
+	font-weight: normal;
+}
+@font-face{
+	font-family: "opendyslexic";
+	src: url("/fonts/OpenDyslexic/OpenDyslexic-Italic.otf");
+	font-style: italic;
+	font-weight: normal;
+}
+@font-face{
+	font-family: "opendyslexic";
+	src: url("/fonts/OpenDyslexic/OpenDyslexic-Bold.otf");
+	font-weight: bold;
+	font-style: normal;
+}
+@font-face{
+	font-family: "opendyslexic";
+	src: url("/fonts/OpenDyslexic/OpenDyslexic-BoldItalic.otf");
+	font-weight: bold;
+	font-style: italic;
+}
+
+body.pojo-a11y-readable-font,
+body.pojo-a11y-readable-font *:not(i):not(span) {
+font-family: "opendyslexic" !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
